@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "vse-bulochki",
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "env": {
+    "APPSYNC_GRAPHQLENDPOINT": "@endpoint",
+    "APPSYNC_REGION": "@region",
+    "APPSYNC_AUTHENTICATIONTYPE": "@authtype",
+    "IDENTITY_POOL_ID": "@pool",
+    "USER_POOL_ID": "@userpool",
+    "WEBCLIENT_ID": "@webclient",
+    "IMAGEHANDLER_URL": "@imghandler"
+  },
+  "routes": [
+    { "src": "/home", "dest": "/index.js" },
+    { "src": "/category/(.+)", "dest": "/category.js?name=$1" },
+    { "src": "/search/(.+)", "dest": "/search.js?term=$1" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
