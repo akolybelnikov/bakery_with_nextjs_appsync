@@ -44,7 +44,7 @@ const config = {
             return `${typename}:${obj}.id`
           case "NewsConnection":
             return `${typename}:${obj}.id`
-          case "CategoriesConnection":
+          case "CategoryConnection":
             return `${typename}:${obj}.id`
           case "ProductConnection":
             return `${typename}:${obj}.id`

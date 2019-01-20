@@ -3,7 +3,8 @@
     "now-build": "next build",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "now && now alias && now rm vse-bulochki --safe --yes"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -34,8 +35,5 @@
     "rxjs": "^6.3.3",
     "yarn": "^1.13.0"
   },
-  "devDependencies": {
-    "file-loader": "^3.0.1",
-    "url-loader": "^1.1.2"
-  }
+  "devDependencies": {}
 }

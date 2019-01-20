@@ -1,17 +1,19 @@
-const withSass = require("@zeit/next-sass")
-const DotEnv = require("dotenv-webpack")
-const withCss = require("@zeit/next-css")
+const withSass = require('@zeit/next-sass')
+const DotEnv = require('dotenv-webpack')
+const withCss = require('@zeit/next-css')
+const webpack = require('webpack')
 
-if (typeof require !== "undefined") {
-  require.extensions[".less"] = () => {}
-  require.extensions[".css"] = file => {}
+if (typeof require !== 'undefined') {
+  require.extensions['.less'] = () => {}
+  require.extensions['.css'] = file => {}
 }
 
 module.exports = withCss(
   withSass({
-    target: "serverless",
+    target: 'serverless',
     webpack: config => {
       config.plugins.push(new DotEnv())
+      config.plugins.push(new webpack.IgnorePlugin(/\/iconv-loader$/))
       return config
     },
   }),

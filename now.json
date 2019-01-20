@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "vse-bulochki",
+  "alias": ["vse-bulochki"],
   "builds": [{ "src": "package.json", "use": "@now/next" }],
   "env": {
     "APPSYNC_GRAPHQLENDPOINT": "@endpoint",
