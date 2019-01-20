@@ -1,34 +1,34 @@
 @charset "utf-8";
-@import "~bulma/sass/utilities/_all";
-@import "./variables";
+@import '~bulma/sass/utilities/_all';
+@import './variables';
 
 // override ./static/fonts
-$family-sans-serif: apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
-$family-primary: apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-  sans-serif;
+$family-sans-serif: 'Raleway', apple-system, BlinkMacSystemFont, 'Segoe UI',
+  'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+  'Helvetica Neue', sans-serif;
+$family-primary: 'Raleway', apple-system, BlinkMacSystemFont, 'Segoe UI',
+  'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+  'Helvetica Neue', sans-serif;
 
 // override colors
 $colors: (
-  "primary": (
+  'primary': (
     $primary,
     $primary-invert,
   ),
-  "success": (
+  'success': (
     $success,
     $success-invert,
   ),
-  "info": (
+  'info': (
     $info,
     $info-invert,
   ),
-  "warning": (
+  'warning': (
     $warning,
     $warning-invert,
   ),
-  "danger": (
+  'danger': (
     $danger,
     $danger-invert,
   ),
@@ -75,5 +75,4 @@ $panel-block-color: $info;
 $panel-block-hover-background-color: $success-shadow;
 $panel-tab-active-border-bottom-color: $info;
 
-@import "~bulma";
-@import "~bulma-carousel/dist/css/bulma-carousel";
+@import '~bulma';

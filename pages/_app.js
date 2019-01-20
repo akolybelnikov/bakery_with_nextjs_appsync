@@ -1,19 +1,15 @@
 import App, { Container } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
-import { ApolloProvider, compose } from 'react-apollo'
 import Footer from '../components/Footer'
 import Header from '../components/header'
 import MobileFooter from '../components/MobileFooter'
-import {
-  listCategories,
-  listNews,
-  listOffers,
-} from '../graphql/resolvers/index'
 import { currentUser } from '../lib/awsAuth'
+import Fonts from '../lib/fonts'
+import '../node_modules/slick-carousel/slick/slick-theme.css'
+import '../node_modules/slick-carousel/slick/slick.css'
 import '../styles/bulma.scss'
 import { NonTouch, Touch } from '../styles/utils'
-import withData from '../withData'
 
 class ExtendedApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -31,6 +27,7 @@ class ExtendedApp extends App {
     if (authUser) {
       this.setCurrentUser(authUser.attributes.email, true)
     }
+    await Fonts()
   }
 
   state = {
@@ -48,16 +45,7 @@ class ExtendedApp extends App {
   }
 
   render() {
-    const {
-      Component,
-      pageProps,
-      pageProps: {
-        serverState: { apollo },
-      },
-      categories,
-      news,
-      offers,
-    } = this.props
+    const { Component, pageProps } = this.props
     return (
       <Container>
         <Head>
@@ -89,42 +77,35 @@ class ExtendedApp extends App {
             src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'
           />
         </Head>
-        <ApolloProvider client={apollo}>
-          <Header
+        <Header
+          {...pageProps}
+          isAuthenticated={this.state.isAuthenticated}
+          email={this.state.email}
+        />
+        <Component
+          {...pageProps}
+          setCurrentUser={this.setCurrentUser}
+          isAuthenticated={this.state.isAuthenticated}
+          email={this.state.email}
+          currentProduct={this.state.currentProduct}
+          setProduct={this.setProduct}
+        />
+        <Touch>
+          <MobileFooter
             {...pageProps}
             isAuthenticated={this.state.isAuthenticated}
-            email={this.state.email}
           />
-          <Component
-            {...pageProps}
-            setCurrentUser={this.setCurrentUser}
-            isAuthenticated={this.state.isAuthenticated}
-            email={this.state.email}
-            currentProduct={this.state.currentProduct}
-            setProduct={this.setProduct}
-            categories={categories}
-            news={news}
-            offers={offers}
-          />
-          <Touch>
-            <MobileFooter
-              {...pageProps}
-              isAuthenticated={this.state.isAuthenticated}
-            />
-          </Touch>
-          <NonTouch>
-            <Footer />
-          </NonTouch>
-        </ApolloProvider>
+        </Touch>
+        <NonTouch>
+          <Footer />
+        </NonTouch>
 
         <style jsx global>
           {`
             body {
               margin: 0;
               padding: 0;
-              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-                'Droid Sans', 'Helvetica Neue', sans-serif;
+              font-family: 'Raleway', sans-serif;
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
               overflow-x: hidden;
@@ -150,10 +131,4 @@ class ExtendedApp extends App {
   }
 }
 
-export default withData(
-  compose(
-    listCategories,
-    listOffers,
-    listNews,
-  )(ExtendedApp),
-)
+export default ExtendedApp

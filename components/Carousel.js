@@ -1,118 +1,80 @@
-import { Default, Handset, SmallHandset, theme } from '../styles/utils'
+import Slider from 'react-slick'
+import {
+  GTLargeHandset,
+  Handset,
+  LargeHandset,
+  SmallHandset,
+  theme,
+} from '../styles/utils'
+import Item from './CarouselItem'
+import ItemTitle from './ItemTitle'
 
-export const Carousel = ({ autoplay, delay, children }) => {
-  return (
-    <div
-      className='carousel carousel-animated carousel-animate-fade'
-      data-autoplay={autoplay}
-      data-delay={delay}>
-      <div className='carousel-container'>{children}</div>
-      <style jsx>
-        {`
-          .carousel-container {
-            position: absolute;
-          }
-          .carousel {
-            height: 40vh;
-          }
-          @media screen and (max-width: 359px) {
-            .carousel {
-              height: 45vh;
-            }
-          }
-          @media screen and (min-width: 600px) and (max-width: 768px) {
-            .carousel {
-              height: 50vh;
-            }
-          }
-          @media screen and (min-width: 769px) and (max-width: 1024px) {
-            .carousel {
-              height: 25vh;
-            }
-          }
-          @media screen and (max-width: 1023px) and (orientation: landscape) {
-            .carousel {
-              height: 70vh;
-            }
-          }
-        `}
-      </style>
-    </div>
-  )
+const settings = {
+  dots: true,
+  fade: true,
+  autoplay: true,
+  speed: 1500,
+  autoplaySpeed: 5000,
+  cssEase: 'linear',
 }
 
-export const CarouselItem = ({ children }) => {
+export default ({ items }) => {
   return (
-    <div className='carousel-item has-background'>
-      {children}
-      <style jsx>
-        {`
-          @media screen and (min-width: 825px) {
-            div {
-              max-height: 40%;
-              overflow: hidden;
-            }
-          }
-        `}
-      </style>
+    <div>
+      <Slider {...settings}>
+        {items.map((item, index) => (
+          <React.Fragment key={index}>
+            <SmallHandset>
+              <Item name={item.image} size={'450x450'}>
+                <ItemTitle
+                  content={item.content}
+                  fontSize={'1rem'}
+                  lineHeight={1.3}
+                />
+              </Item>
+            </SmallHandset>
+            <Handset>
+              <Item name={item.image} size={'600x600'}>
+                <ItemTitle
+                  content={item.content}
+                  fontSize={'1.1rem'}
+                  lineHeight={1.3}
+                />
+              </Item>
+            </Handset>
+            <LargeHandset>
+              <Item name={item.image} size={'750x750'}>
+                <ItemTitle
+                  content={item.content}
+                  fontSize={'1.5rem'}
+                  lineHeight={1.5}
+                />
+              </Item>
+            </LargeHandset>
+            <GTLargeHandset>
+              <Item name={item.image} size={'1440x1440'}>
+                <ItemTitle
+                  content={item.content}
+                  fontSize={'1.5rem'}
+                  lineHeight={1.5}
+                />
+              </Item>
+            </GTLargeHandset>
+          </React.Fragment>
+        ))}
+      </Slider>
+      <style jsx>{`
+        :global(.slick-dots li button:before) {
+          font-size: 10px;
+          color: ${theme.primary};
+        }
+        :global(.slick-dots li.slick-active button:before) {
+          color: ${theme.primary};
+        }
+        :global(.slick-slider) {
+          min-height: 40vh;
+        }
+      `}</style>
     </div>
-  )
-}
-
-export const CarouselTitle = ({ children }) => {
-  return (
-    <React.Fragment>
-      <SmallHandset>
-        <div className='title'>
-          {children}
-          <style jsx>
-            {`
-              div {
-                font-size: 1rem !important;
-                line-height: 1.2;
-                color: #fff;
-                background: ${theme.infoShadow} !important;
-                font-weight: 400;
-                padding: 0.5em !important;
-              }
-            `}
-          </style>
-        </div>
-      </SmallHandset>
-      <Handset>
-        <div className='title'>
-          {children}
-          <style jsx>
-            {`
-              div {
-                font-size: 1.25rem !important;
-                line-height: 1.3;
-                color: #fff;
-                background: ${theme.infoShadow} !important;
-                font-weight: 400;
-                padding: 0.5em !important;
-              }
-            `}
-          </style>
-        </div>
-      </Handset>
-      <Default>
-        <div className='title'>
-          {children}
-          <style jsx>
-            {`
-              div {
-                font-size: 1.5rem !important;
-                line-height: 1.5;
-                color: #fff;
-                background: ${theme.infoShadow} !important;
-                font-weight: 400;
-                padding: 0.5em !important;
-              }
-            `}
-          </style>
-        </div>
-      </Default>
-    </React.Fragment>
   )
 }
