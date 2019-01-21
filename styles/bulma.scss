@@ -74,5 +74,7 @@ $panel-heading-color: $info;
 $panel-block-color: $info;
 $panel-block-hover-background-color: $success-shadow;
 $panel-tab-active-border-bottom-color: $info;
+// Responsive
+$tablet: '768px';
 
 @import '~bulma';

@@ -10,6 +10,7 @@ import '../node_modules/slick-carousel/slick/slick-theme.css'
 import '../node_modules/slick-carousel/slick/slick.css'
 import '../styles/bulma.scss'
 import { NonTouch, Touch } from '../styles/utils'
+import MobileHeader from '../components/MobileHeader'
 
 class ExtendedApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -77,11 +78,20 @@ class ExtendedApp extends App {
             src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'
           />
         </Head>
-        <Header
-          {...pageProps}
-          isAuthenticated={this.state.isAuthenticated}
-          email={this.state.email}
-        />
+        <Touch>
+          <MobileHeader
+            {...pageProps}
+            isAuthenticated={this.state.isAuthenticated}
+            email={this.state.email}
+          />
+        </Touch>
+        <NonTouch>
+          <Header
+            {...pageProps}
+            isAuthenticated={this.state.isAuthenticated}
+            email={this.state.email}
+          />
+        </NonTouch>
         <Component
           {...pageProps}
           setCurrentUser={this.setCurrentUser}

@@ -9,7 +9,7 @@ export default props => (
         position: fixed;
         max-height: 100px;
         width: 320px;
-        top: 5.5rem;
+        top: 7.5rem;
         right: 50%;
         margin-right: -160px;
         z-index: 20;

@@ -6,7 +6,7 @@ export default props => {
 
   return (
     <Card className='category-card zoomIn'>
-      <CardHeader style={{ alignItems: 'center', padding: '0 0.5rem' }}>
+      <CardHeader style={{ alignItems: 'center', padding: '0 0.5rem', minHeight: '4.5rem' }}>
         <CardHeaderTitle>{category.title}</CardHeaderTitle>
         <Icon className='fas fa-chevron-right' />
       </CardHeader>

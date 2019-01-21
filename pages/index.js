@@ -1,23 +1,27 @@
 import { Title } from 'bloomer'
-import { compose } from 'react-apollo'
+import { compose, Query } from 'react-apollo'
+import Carousel from '../components/Carousel'
 import Categories from '../components/Categories'
 import ComponentContainer from '../components/ComponentContainer'
 import NewsItem from '../components/NewsItem'
-import Carousel from '../components/Carousel'
-import {
-  listCategories,
-  listNews,
-  listOffers,
-} from '../graphql/resolvers/index'
+import LIST_OFFERS from '../graphql/queries/offers'
+import { listCategories, listNews } from '../graphql/resolvers/index'
 import '../node_modules/slick-carousel/slick/slick-theme.css'
 import '../node_modules/slick-carousel/slick/slick.css'
 import withData from '../withData'
 
-const Index = ({ offers, news, categories }) => {
-
+const Index = ({ news, categories }) => {
   return (
     <ComponentContainer>
-      {offers && <Carousel items={offers} />}
+      <Query query={LIST_OFFERS}>
+        {({ data: { listOffers } }) => {
+          if (listOffers) {
+            return <Carousel items={listOffers.items} />
+          } else {
+            return null;
+          }
+        }}
+      </Query>
       {categories && <Categories categories={categories} />}
       <Title
         style={{ margin: '1rem' }}
@@ -42,7 +46,6 @@ const Index = ({ offers, news, categories }) => {
 export default withData(
   compose(
     listCategories,
-    listOffers,
     listNews,
   )(Index),
 )

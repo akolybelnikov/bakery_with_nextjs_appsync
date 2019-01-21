@@ -11,6 +11,7 @@ import ItemTitle from './ItemTitle'
 
 const settings = {
   dots: true,
+  infinite: true,
   fade: true,
   autoplay: true,
   speed: 1500,

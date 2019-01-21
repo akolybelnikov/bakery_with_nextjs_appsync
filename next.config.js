@@ -2,6 +2,8 @@ const withSass = require('@zeit/next-sass')
 const DotEnv = require('dotenv-webpack')
 const withCss = require('@zeit/next-css')
 const webpack = require('webpack')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const withPurgeCss = require('next-purgecss')
 
 if (typeof require !== 'undefined') {
   require.extensions['.less'] = () => {}
@@ -24,6 +26,11 @@ module.exports = withCss(
           },
         },
       })
+      if (config.mode === 'production') {
+        if (Array.isArray(config.optimization.minimizer)) {
+          config.optimization.minimizer.push(new OptimizeCSSAssetsPlugin({}))
+        }
+      }
       return config
     },
   }),
