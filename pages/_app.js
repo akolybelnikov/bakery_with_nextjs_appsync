@@ -129,24 +129,6 @@ class ExtendedApp extends App {
               user-select: none;
               cursor: default; ̰
             }
-
-            #root {
-              overflow: hidden;
-              margin: 0;
-              padding: 0;
-              width: 100%;
-              height: 100%;
-            }
-
-            html {
-              padding-top: 7.25rem;
-            }
-
-            @media screen and (max-width: 599px) {
-              html {
-                padding-top: 5.5rem;
-              }
-            }
             .container {
               position: relative;
             }

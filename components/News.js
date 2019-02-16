@@ -1,14 +1,13 @@
-import { Title, Icon } from 'bloomer'
-import { Default, BelowDefault, theme } from '../styles/utils'
+import { Icon, Title } from 'bloomer'
+import { useCallback, useState } from 'react'
+import { animated, useTransition } from 'react-spring'
 import NewsItem from '../components/NewsItem'
-import { useState, useCallback } from 'react'
-import { useTransition, animated } from 'react-spring'
+import { theme, Default } from '../styles/utils'
 
 export default ({ news }) => {
   const pages = news.map(item => ({ style }) => (
     <animated.div className='animated' style={{ ...style }}>
       <NewsItem news={item} DTsize='600x600' />
-      <Icon isSize='large' className='fa fa-caret-right fa-3x' />
     </animated.div>
   ))
 
@@ -29,6 +28,12 @@ export default ({ news }) => {
         Наши новости
       </Title>
       <div className='simple-trans-main' onClick={onClick}>
+        <div style={{ position: 'absolute', bottom: 10, right: 10, zIndex: 100 }}>
+          <Icon
+            isSize='large'
+            className='fa fa-caret-right fa-4x'
+          />
+        </div>
         {transitions.map(({ item, props, key }) => {
           const Page = pages[item]
           return <Page key={key} style={props} />
@@ -44,37 +49,47 @@ export default ({ news }) => {
               background: ${theme.primaryShadow};
             }
           }
+          :global(span.icon.is-large) {
+            color: ${theme.primaryHalf}
+          }
+          :global(.simple-trans-main) {
+            position: relative;
+            height: 60vh;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            cursor: pointer;
+            scroll-behavior: smooth;
+          }
+          @media all and (max-width: 599px) {
             :global(.simple-trans-main) {
-              position: relative;
-              height: 60vh;
-              width: 100%;
-              margin: 0 auto;
-              padding: 2rem;
-              cursor: pointer;
-            }
-            @media all and (max-width: 599px) {
-              :global(.simple-trans-main) {
-                padding: 1rem;
-              }
+              padding: 0 1rem;
+              min-height: 100vh;
             }
             :global(.animated) {
-              cursor: pointer;
-              position: absolute;
-              width: 90%;
-              font-size: 20px;
-              letter-spacing: 1.1px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              will-change: transform, opacity;
-              text-shadow: 0px 2px 40px #00000020, 0px 2px 5px #00000030;
+              margin-bottom: 4.5rem;
             }
-            @media all and (max-width: 1089px) {
-              :global(.animated) {
-                font-size: 18px;
-              }
-            })
+            :global(span.icon.is-large) {
+              color: ${theme.success}
+            }
+          }
+          :global(.animated) {
+            cursor: pointer;
+            position: absolute;
+            width: 90%;
+            font-size: 20px;
+            letter-spacing: 1.1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            will-change: transform, opacity;
+            text-shadow: 0px 2px 40px #00000020, 0px 2px 5px #00000030;
+          }
+          @media all and (max-width: 1089px) {
+            :global(.animated) {
+              font-size: 18px;
+            }
+          })
         `}</style>
       </div>
     </React.Fragment>

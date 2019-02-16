@@ -181,13 +181,14 @@ export default class MobileHeader extends Component {
           {`
             .navbar {
               transition: all 0.5s ease-in-out;
-              max-width: 1600px;
+              max-width: 1024px;
               margin: 0 auto;
               background-color: rgba(255, 255, 255, 0.5);
               top: ${this.state.isScrolledUp ? 0 : -7.25}em !important;
             }
             .navbar-menu {
               justify-content: space-evenly;
+              background-color: transparent;
             }
             .navbar-brand {
               justify-content: space-between !important;

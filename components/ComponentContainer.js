@@ -5,11 +5,11 @@ export default ({ children }) => {
       <style jsx>
         {`
           main {
-            padding: 0 0 4.25rem;
+            padding: 7.5rem 0.5rem;
           }
-          @media screen and (min-width: 769px) {
+          @media screen and (max-width: 599px) {
             main {
-              padding: 3.25rem 1rem 4.25rem;
+              padding: 5.5rem 0;
             }
           }
         `}

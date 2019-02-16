@@ -7,7 +7,7 @@ import {
   MediaLeft,
   MediaRight,
 } from 'bloomer'
-import { BelowDefault, Default } from '../styles/utils'
+import { BelowDefault, Default, theme } from '../styles/utils'
 import Image from './Image'
 import Moment from 'react-moment'
 
@@ -30,9 +30,17 @@ export default ({ news, DTsize, MBsize }) => {
             </MediaLeft>
             <MediaContent>
               <p className='news-content'>{news.content}</p>
-              <Moment unix locale='ru' format='LL'>
-                {news.createdAt / 1000}
-              </Moment>
+              <p
+                style={{
+                  marginTop: '0.5rem',
+                  borderTop: `1px solid ${theme.primaryHalf}`,
+                  color: `${theme.primaryHalf}`,
+                  paddingTop: '0.5rem',
+                }}>
+                <Moment unix locale='ru' format='LL'>
+                  {news.createdAt / 1000}
+                </Moment>
+              </p>
             </MediaContent>
             <MediaRight />
           </Media>
@@ -54,7 +62,12 @@ export default ({ news, DTsize, MBsize }) => {
             </CardImage>
             <CardContent className='media-content'>
               <p>{news.content}</p>
-              <p style={{ marginTop: '0.5rem' }}>
+              <p
+                style={{
+                  marginTop: '0.5rem',
+                  borderTop: `1px solid ${theme.success}`,
+                  paddingTop: '0.5rem',
+                }}>
                 <Moment unix locale='ru' format='LL'>
                   {news.createdAt / 1000}
                 </Moment>
@@ -90,8 +103,8 @@ export default ({ news, DTsize, MBsize }) => {
         @media all and (max-width: 599px) {
           :global(.media-content) {
             font-size: 15px !important;
-          }import { parse } from 'graphql/language';
-
+            text-align: left;
+          }
         })
       `}</style>
     </React.Fragment>

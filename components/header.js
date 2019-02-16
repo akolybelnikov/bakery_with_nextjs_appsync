@@ -15,6 +15,7 @@ export default props => {
             </NavbarLink>
           </Link>
         </NavbarItem>
+
         <NavbarItem>
           <Link href='/assortment'>
             <NavbarLink
@@ -24,6 +25,7 @@ export default props => {
             </NavbarLink>
           </Link>
         </NavbarItem>
+
         <NavbarItem>
           <Link href='/offers'>
             <NavbarLink
@@ -43,6 +45,7 @@ export default props => {
             </NavbarLink>
           </Link>
         </NavbarItem>
+
         <NavbarItem>
           <Link href='/about'>
             <NavbarLink
@@ -52,14 +55,13 @@ export default props => {
             </NavbarLink>
           </Link>
         </NavbarItem>
+
         <NavbarItem>
           <Link href={isAuthenticated ? '/user' : '/authenticate'}>
             <NavbarLink
               aria-label='User page link'
               className={
-                isAuthenticated
-                  ? `is-arrowless`
-                  : `is-arrowless is-size-5`
+                isAuthenticated ? `is-arrowless` : `is-arrowless is-size-5`
               }>
               {isAuthenticated ? email : 'Вход пользователя'}
             </NavbarLink>

@@ -31,10 +31,13 @@ const Index = ({ news, categories }) => {
         Наши новости
       </Title>
       {news && (
-        <NewsItem news={news.sort((a, b) => b.createdAt - a.createdAt)[0]} DTsize='300x300'/>
+        <NewsItem
+          news={news.sort((a, b) => b.createdAt - a.createdAt)[0]}
+          DTsize='300x300'
+        />
       )}
       <Level>
-        <LevelItem>
+        <LevelItem style={{ justifyContent: 'flex-end' }}>
           <Link
             href={{
               pathname: '/about',

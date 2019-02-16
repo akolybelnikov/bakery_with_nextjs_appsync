@@ -17,7 +17,7 @@ import SuccessScreen from "../components/SuccessScreen"
 import GET_USER from "../graphql/queries/user"
 import { currentUser, dict, map } from "../lib/awsAuth"
 import Router from "next/router"
-import { AwsTheme } from "../styles/utils"
+import { AwsTheme } from "../lib/aws_theme"
 import withData from "../withData"
 
 class Authenticate extends React.PureComponent {
@@ -32,6 +32,7 @@ class Authenticate extends React.PureComponent {
   }
 
   onStateChange = async authState => {
+    console.log(this.props.currentProduct)
     if (authState === "signedIn") {
       const authUser = await currentUser()
       this.setState({ currentUser: authUser })
@@ -39,7 +40,7 @@ class Authenticate extends React.PureComponent {
       setTimeout(() => {
         if (this.props.currentProduct) {
           Router.push({
-            pathname: "product",
+            pathname: "/product",
             query: {
               id: this.props.currentProduct.productId,
               category: this.props.currentProduct.category,
@@ -49,7 +50,7 @@ class Authenticate extends React.PureComponent {
         } else {
           Router.push("/")
         }
-      }, 1000)
+      }, 500)
     }
   }
 
@@ -72,7 +73,7 @@ class Authenticate extends React.PureComponent {
             <Authenticator
               hideDefault={true}
               theme={AwsTheme}
-              authState="signUp"
+              authState="signIn"
               errorMessage={map}
               onStateChange={this.onStateChange}>
               <CustomizedSignIn
