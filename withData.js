@@ -1,4 +1,4 @@
-import Amplify, { Auth } from "aws-amplify"
+import Amplify, { Auth, API } from "aws-amplify"
 import { defaultDataIdFromObject } from "aws-appsync"
 import { withAppSyncData } from "next-apollo-appsync"
 
@@ -10,6 +10,16 @@ Amplify.configure({
     userPoolWebClientId: process.env.WEBCLIENT_ID,
     mandatorySignIn: false,
   },
+  API: {
+    endpoints: [
+      {
+        name: process.env.API_NAME,
+        endpoint: process.env.API_ENDPOINT,
+        service: process.env.API_SERVICE,
+        region: process.env.APPSYNC_REGION
+      }
+    ]
+  }
 })
 
 const config = {

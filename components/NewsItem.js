@@ -1,18 +1,14 @@
 import {
-  Button,
   Card,
   CardContent,
-  CardFooter,
-  CardFooterItem,
   CardImage,
-  Icon,
   Media,
   MediaContent,
   MediaLeft,
   MediaRight,
-} from "bloomer"
-import { BelowDefault, Default } from "../styles/utils"
-import Image from "./Image"
+} from 'bloomer'
+import { BelowDefault, Default } from '../styles/utils'
+import Image from './Image'
 
 export default ({ news }) => {
   return (
@@ -21,22 +17,18 @@ export default ({ news }) => {
         <Default>
           <Media>
             <MediaLeft>
-              <figure className="image figure-media">
+              <figure className='image figure-media'>
                 <Image
-                  style={{ minWidth: "100%" }}
-                  className="media-image"
+                  style={{ minWidth: '100%' }}
+                  className='media-image'
                   name={news.image}
-                  size="320x320"
-                  alt="news image"
+                  size='300x300'
+                  alt='news image'
                 />
               </figure>
             </MediaLeft>
             <MediaContent>
-              <p className="news-content">{news.content}</p>
-              <Button isColor="primary" isInverted isPulled="right">
-                <span>Смотреть все наши новости</span>
-                <Icon className="fas fa-chevron-right" />
-              </Button>
+              <p className='news-content'>{news.content}</p>
             </MediaContent>
             <MediaRight />
           </Media>
@@ -46,23 +38,17 @@ export default ({ news }) => {
         <BelowDefault>
           <Card>
             <CardImage>
-              <figure className="image figure-card">
+              <figure className='image figure-card'>
                 <Image
-                  style={{ minWidth: "100%" }}
-                  className="media-image"
+                  style={{ minWidth: '100%' }}
+                  className='media-image'
                   name={news.image}
-                  size="620x620"
-                  alt="news image"
+                  size='600x600'
+                  alt='news image'
                 />
               </figure>
             </CardImage>
-            <CardContent className="media-content">{news.content}</CardContent>
-            <CardFooter>
-              <CardFooterItem style={{ justifyContent: "space-around" }}>
-                <span>Смотреть все наши новости</span>
-                <Icon className="fas fa-chevron-right" />
-              </CardFooterItem>
-            </CardFooter>
+            <CardContent className='media-content'>{news.content}</CardContent>
           </Card>
         </BelowDefault>
       )}

@@ -171,7 +171,7 @@ export default class MobileHeader extends Component {
               <NavbarLink
                 onClick={this.onCloseMenu}
                 aria-label='About us page link'
-                className='is-arrowless is-size-5'>
+                className='is-arrowless is-size-5-tablet'>
                 О нас
               </NavbarLink>
             </Link>

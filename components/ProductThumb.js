@@ -10,7 +10,7 @@ export default ({ product }) => (
           <Image
             style={{ minWidth: '100%' }}
             name={product.image}
-            size='400x400'
+            size='450x450'
             alt='product image'
           />
         </Touch>
@@ -18,7 +18,7 @@ export default ({ product }) => (
           <Image
             style={{ minWidth: '100%' }}
             name={product.image}
-            size='200x200'
+            size='150x150'
             alt='product image'
           />
         </NonTouch>

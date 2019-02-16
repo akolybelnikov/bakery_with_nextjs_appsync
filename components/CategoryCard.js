@@ -15,7 +15,7 @@ export default props => {
           <Image
             style={{ minWidth: '100%' }}
             className='is-background'
-            size='640x640'
+            size='600x600'
             name={category.image}
             alt='product category image'
           />

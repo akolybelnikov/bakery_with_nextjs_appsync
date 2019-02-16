@@ -17,6 +17,9 @@ const settings = {
   speed: 1500,
   autoplaySpeed: 5000,
   cssEase: 'linear',
+  swipeToSlide: true,
+  arrows: false,
+  className: 'index-slider'
 }
 
 export default ({ items }) => {
@@ -53,7 +56,7 @@ export default ({ items }) => {
               </Item>
             </LargeHandset>
             <GTLargeHandset>
-              <Item name={item.image} size={'1440x1440'}>
+              <Item name={item.image} size={'1200x1200'}>
                 <ItemTitle
                   content={item.content}
                   fontSize={'1.5rem'}
@@ -72,7 +75,7 @@ export default ({ items }) => {
         :global(.slick-dots li.slick-active button:before) {
           color: ${theme.primary};
         }
-        :global(.slick-slider) {
+        :global(.index-slider) {
           min-height: 40vh;
         }
       `}</style>

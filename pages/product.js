@@ -51,7 +51,7 @@ class Product extends React.Component {
           <Breadcrumb style={{ paddingLeft: "20px" }}>
             <ul>
               <BreadcrumbItem>
-                <Link href="/home">
+                <Link href="/">
                   <a>В начало</a>
                 </Link>
               </BreadcrumbItem>

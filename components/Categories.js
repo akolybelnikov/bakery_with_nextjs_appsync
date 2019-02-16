@@ -9,7 +9,7 @@ export default ({ categories }) => {
       <Title
         style={{ margin: '1rem' }}
         hasTextColor='primary'
-        className='is-size-5-mobile is-size-3 has-text-centered-mobile'>
+        className='is-size-6-mobile is-size-4 has-text-centered-mobile'>
         Наш ассортимент
       </Title>
       <Columns>

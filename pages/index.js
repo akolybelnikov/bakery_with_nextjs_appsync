@@ -1,4 +1,5 @@
-import { Title } from 'bloomer'
+import { Level, LevelItem, Title, Icon } from 'bloomer'
+import Link from 'next/link'
 import { compose, Query } from 'react-apollo'
 import Carousel from '../components/Carousel'
 import Categories from '../components/Categories'
@@ -18,7 +19,7 @@ const Index = ({ news, categories }) => {
           if (listOffers) {
             return <Carousel items={listOffers.items} />
           } else {
-            return null;
+            return null
           }
         }}
       </Query>
@@ -26,12 +27,25 @@ const Index = ({ news, categories }) => {
       <Title
         style={{ margin: '1rem' }}
         hasTextColor='primary'
-        className='is-size-5-mobile is-size-3 has-text-centered-mobile'>
+        className='is-size-6-mobile is-size-4 has-text-centered-mobile'>
         Наши новости
       </Title>
       {news && (
         <NewsItem news={news.sort((a, b) => b.createdAt - a.createdAt)[0]} />
       )}
+      <Level>
+        <LevelItem>
+          <Link
+            href={{
+              pathname: '/about',
+            }}>
+            <a className='button is-inverted is-primary is-pulled-right'>
+              <span>Смотреть все наши новости</span>
+              <Icon className='fas fa-chevron-right' />
+            </a>
+          </Link>
+        </LevelItem>
+      </Level>
       <style jsx>
         {`
           :global(h1.title) {

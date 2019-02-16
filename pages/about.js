@@ -1,29 +1,23 @@
-import Link from "next/link"
-import { Component } from "react"
+import { Query } from 'react-apollo';
+import ComponentContainer from '../components/ComponentContainer';
+import News from '../components/News';
+import LIST_NEWS from '../graphql/queries/news';
+import withData from '../withData';
 
-class AboutPage extends Component {
-  static getInitialProps() {
-    const isServer = typeof window === "undefined"
-    return { isServer }
-  }
-
-  render() {
-    return (
-      <main>
-        <section>
-          <p>This is an env var: {process.env.IMAGEHANDLER_URL}</p>
-          <p>
-            This is another page of the SSR example, you accessed it
-            <strong>{this.props.isServer ? "server" : "client"} side</strong>.
-          </p>
-          <p>You can reload to see how the page change.</p>
-          <Link href="/">
-            <a>Go to Home</a>
-          </Link>
-        </section>
-      </main>
-    )
-  }
+const AboutPage = props => {
+  return (
+    <ComponentContainer>
+      <Query query={LIST_NEWS}>
+        {({ data: { listNews } }) => {
+          if (listNews) {
+            return <News news={listNews.items.sort((a, b) => b.createdAt - a.createdAt)} />
+          } else {
+            return null
+          }
+        }}
+      </Query>
+    </ComponentContainer>
+  )
 }
 
-export default AboutPage
+export default withData(AboutPage)

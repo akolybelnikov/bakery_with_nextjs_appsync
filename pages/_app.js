@@ -120,6 +120,7 @@ class ExtendedApp extends App {
               -moz-osx-font-smoothing: grayscale;
               overflow-x: hidden;
               color: #331507;
+              letter-spacing: 0.7px;
             }
 
             html {
