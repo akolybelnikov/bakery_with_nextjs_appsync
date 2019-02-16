@@ -9,8 +9,9 @@ import {
 } from 'bloomer'
 import { BelowDefault, Default } from '../styles/utils'
 import Image from './Image'
+import Moment from 'react-moment'
 
-export default ({ news }) => {
+export default ({ news, DTsize, MBsize }) => {
   return (
     <React.Fragment>
       {news && (
@@ -22,13 +23,16 @@ export default ({ news }) => {
                   style={{ minWidth: '100%' }}
                   className='media-image'
                   name={news.image}
-                  size='300x300'
+                  size={DTsize}
                   alt='news image'
                 />
               </figure>
             </MediaLeft>
             <MediaContent>
               <p className='news-content'>{news.content}</p>
+              <Moment unix locale='ru' format='LL'>
+                {news.createdAt / 1000}
+              </Moment>
             </MediaContent>
             <MediaRight />
           </Media>
@@ -48,7 +52,14 @@ export default ({ news }) => {
                 />
               </figure>
             </CardImage>
-            <CardContent className='media-content'>{news.content}</CardContent>
+            <CardContent className='media-content'>
+              <p>{news.content}</p>
+              <p style={{ marginTop: '0.5rem' }}>
+                <Moment unix locale='ru' format='LL'>
+                  {news.createdAt / 1000}
+                </Moment>
+              </p>
+            </CardContent>
           </Card>
         </BelowDefault>
       )}
@@ -76,6 +87,12 @@ export default ({ news }) => {
         p.news-content {
           margin-bottom: 1rem;
         }
+        @media all and (max-width: 599px) {
+          :global(.media-content) {
+            font-size: 15px !important;
+          }import { parse } from 'graphql/language';
+
+        })
       `}</style>
     </React.Fragment>
   )

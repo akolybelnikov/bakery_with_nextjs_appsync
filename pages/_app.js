@@ -121,6 +121,21 @@ class ExtendedApp extends App {
               overflow-x: hidden;
               color: #331507;
               letter-spacing: 0.7px;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              cursor: default; ̰
+            }
+
+            #root {
+              overflow: hidden;
+              margin: 0;
+              padding: 0;
+              width: 100%;
+              height: 100%;
             }
 
             html {

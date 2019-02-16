@@ -31,7 +31,7 @@ const Index = ({ news, categories }) => {
         Наши новости
       </Title>
       {news && (
-        <NewsItem news={news.sort((a, b) => b.createdAt - a.createdAt)[0]} />
+        <NewsItem news={news.sort((a, b) => b.createdAt - a.createdAt)[0]} DTsize='300x300'/>
       )}
       <Level>
         <LevelItem>
