@@ -3,8 +3,9 @@ import ComponentContainer from '../components/ComponentContainer';
 import News from '../components/News';
 import LIST_NEWS from '../graphql/queries/news';
 import withData from '../withData';
+import Instafeed from '../components/Instafeed'
 
-const AboutPage = props => {
+const AboutPage = () => {
   return (
     <ComponentContainer>
       <Query query={LIST_NEWS}>
@@ -16,6 +17,7 @@ const AboutPage = props => {
           }
         }}
       </Query>
+      <Instafeed />
     </ComponentContainer>
   )
 }

@@ -2,7 +2,7 @@ import { Icon, Title } from 'bloomer'
 import { useCallback, useState } from 'react'
 import { animated, useTransition } from 'react-spring'
 import NewsItem from '../components/NewsItem'
-import { theme, Default } from '../styles/utils'
+import { theme } from '../styles/utils'
 
 export default ({ news }) => {
   const pages = news.map(item => ({ style }) => (
@@ -28,11 +28,9 @@ export default ({ news }) => {
         Наши новости
       </Title>
       <div className='simple-trans-main' onClick={onClick}>
-        <div style={{ position: 'absolute', bottom: 10, right: 10, zIndex: 100 }}>
-          <Icon
-            isSize='large'
-            className='fa fa-caret-right fa-4x'
-          />
+        <div
+          style={{ position: 'absolute', bottom: 10, right: 10, zIndex: 100 }}>
+          <Icon isSize='large' className='fa fa-caret-right fa-4x' />
         </div>
         {transitions.map(({ item, props, key }) => {
           const Page = pages[item]
@@ -54,17 +52,23 @@ export default ({ news }) => {
           }
           :global(.simple-trans-main) {
             position: relative;
-            height: 60vh;
+            height: 50vh;
             width: 100%;
             margin: 0 auto;
             padding: 2rem;
             cursor: pointer;
             scroll-behavior: smooth;
           }
+          @media screen and (orientation: landscape) {
+            :global(.simple-trans-main) {
+              height: 65vh;
+            }
+          }
           @media all and (max-width: 599px) {
             :global(.simple-trans-main) {
               padding: 0 1rem;
               min-height: 100vh;
+              margin-bottom: 12rem;
             }
             :global(.animated) {
               margin-bottom: 4.5rem;

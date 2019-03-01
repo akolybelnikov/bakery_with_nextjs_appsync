@@ -3,7 +3,6 @@ const DotEnv = require('dotenv-webpack')
 const withCss = require('@zeit/next-css')
 const webpack = require('webpack')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const withPurgeCss = require('next-purgecss')
 
 if (typeof require !== 'undefined') {
   require.extensions['.less'] = () => {}

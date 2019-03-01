@@ -10,7 +10,11 @@
     "IDENTITY_POOL_ID": "@pool",
     "USER_POOL_ID": "@userpool",
     "WEBCLIENT_ID": "@webclient",
-    "IMAGEHANDLER_URL": "@imghandler"
+    "IMAGEHANDLER_URL": "@imghandler",
+    "GOOGLE_ID": "@google-id",
+    "INSTAGRAM_USER_ID": "@instagram-user-id",
+    "INSTAGRAM_CLIENT_ID": "@instagram-client-id",
+    "INSTAGRAM_ACCESS_TOKEN": "@instagram-access-token"
   },
   "routes": [
     { "src": "/home", "dest": "/index.js" },

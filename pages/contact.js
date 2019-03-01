@@ -1,17 +1,23 @@
-import { Level, LevelItem, Notification } from 'bloomer'
+import { Title } from 'bloomer'
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react'
 import ComponentContainer from '../components/ComponentContainer'
+import ContactDetails from '../components/ContactDetails'
 import mapStyles from '../styles/googlemap'
-import { Touch, theme } from '../styles/utils'
 
 const style = {
   width: '100%',
-  height: '50%',
+  height: '60%',
 }
 
 const Contact = props => (
   <ComponentContainer>
-    <div className='map-container' style={{ height: '50vh' }}>
+    <Title
+      style={{ margin: '1rem' }}
+      hasTextColor='primary'
+      className='is-size-6-mobile is-size-4 has-text-centered-mobile'>
+      Наши координаты
+    </Title>
+    <div className='map-container' style={{ height: '60vh' }}>
       <Map
         styles={mapStyles}
         style={style}
@@ -33,66 +39,20 @@ const Contact = props => (
         <Marker />
       </Map>
     </div>
-    <Touch>
-      <Level className='contact-level' style={{ marginBlockStart: '1rem' }}>
-        <LevelItem style={{ flexBasis: '30%' }}>
-          <Notification className='has-text-left footer-note'>
-            <p>
-              <strong>Наш адрес:</strong>
-            </p>
-            <br />
-            <p>109377, г.Москва</p>
-            <p>Рязанский проспект, 58/1</p>
-          </Notification>
-        </LevelItem>
-        <LevelItem style={{ flexBasis: '30%' }}>
-          <Notification className='has-text-left footer-note'>
-            <p>
-              <strong>Наши номера телефона:</strong>
-            </p>
-            <br />
-            <p>+7 (926) 982-35-72</p>
-            <p>+7 (926) 629-87-26</p>
-          </Notification>
-        </LevelItem>
-        <LevelItem style={{ flexBasis: '40%' }}>
-          <Notification className='has-text-left footer-note'>
-            <p>
-              <strong>Наши часы работы:</strong>
-            </p>
-            <br />
-            <p>с понедельника по субботу: с 8.00 до 20.00</p>
-            <br />
-            <p>в воскресенье: с 9.00 до 18.00</p>
-          </Notification>
-        </LevelItem>
-      </Level>
-    </Touch>
+    <ContactDetails />
     <style jsx>
       {`
         :global(.map-container > div > div > div) {
-          height: 104% !important;
+          height: 103% !important;
         }
         :global(main) {
           padding-left: 0 !important;
           padding-right: 0 !important;
-        }
-        :global(.contact-level) {
-          background-color: ${theme.success};
-        }
-        :global(.notification) {
-          min-height: 200px;
-        }
-        @media screen and (max-width: 767px) {
-          :global(.notification) {
-            min-height: 100px;
-            width: 100%
-          }
         }
       `}
     </style>
   </ComponentContainer>
 )
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAyd63zmYaD4BTRzVjWym2BjY5wX61W6nI',
+  apiKey: process.env.GOOGLE_ID,
 })(Contact)
