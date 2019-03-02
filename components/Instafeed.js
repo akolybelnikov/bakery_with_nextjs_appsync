@@ -62,12 +62,7 @@ export default () => {
                       />
                     </CardHeaderIcon>
                   </CardHeader>
-                  <CardImage
-                    style={{
-                      background: `url(${
-                        post.images.standard_resolution.url
-                      }) center center / contain `,
-                    }}>
+                  <CardImage>
                     <figure className='image'>
                       <img
                         src={post.images.standard_resolution.url}

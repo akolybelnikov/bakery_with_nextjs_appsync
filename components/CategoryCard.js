@@ -13,8 +13,6 @@ export default props => {
       <CardImage>
         <figure className='image is-square'>
           <Image
-            style={{ minWidth: '100%' }}
-            className='is-background'
             size='600x600'
             name={category.image}
             alt='product category image'
