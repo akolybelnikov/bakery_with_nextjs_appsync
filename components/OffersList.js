@@ -80,7 +80,7 @@ export default function({ items, height }) {
             letter-spacing: 2px;
             height: 175px;
             background: linear-gradient(135deg, #753957 25%, #eaccb2 100%);
-            overflow: visible;
+            overflow: scroll;
             display: flex;
             align-items: center;
             margin-left: 10%;

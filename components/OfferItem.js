@@ -59,6 +59,7 @@ export default ({ item }) => {
           }
           :global(.card-content) {
             padding: 1rem 0;
+            text-align: justify;
           }
         `}
       </style>
