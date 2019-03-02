@@ -36,7 +36,7 @@ export default () => {
   return (
     <Fragment>
       <Title
-        style={{ margin: '3rem 2rem', color: theme.primary }}
+        style={{ margin: '1.5rem 0', color: theme.primary, textAlign: 'center' }}
         className='is-size-6-mobile is-size-4 has-text-centered-mobile'>
         Мы на Инстаграм
       </Title>

@@ -58,6 +58,7 @@ export default ({ news }) => {
             padding: 2rem;
             cursor: pointer;
             scroll-behavior: smooth;
+            overflow-y: scroll;
           }
           @media screen and (orientation: landscape) {
             :global(.simple-trans-main) {
@@ -68,7 +69,6 @@ export default ({ news }) => {
             :global(.simple-trans-main) {
               padding: 0 1rem;
               min-height: 100vh;
-              margin-bottom: 12rem;
             }
             :global(.animated) {
               margin-bottom: 4.5rem;

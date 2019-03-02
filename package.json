@@ -26,7 +26,7 @@
     "lodash-es": "^4.17.11",
     "lodash-move": "^1.1.1",
     "moment": "^2.24.0",
-    "next": "^8.0.1",
+    "next": "^8.0.3",
     "next-apollo-appsync": "^0.0.7",
     "node-sass": "^4.11.0",
     "now": "^13.1.2",
@@ -47,7 +47,6 @@
   },
   "devDependencies": {
     "file-loader": "^3.0.1",
-    "next-purgecss": "^3.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "url-loader": "^1.1.2"
   }
