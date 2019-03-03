@@ -131,6 +131,11 @@ class Product extends React.Component {
                 max-width: 90%;
               }
             }
+            @media screen and (max-width: 1087px) {
+              :global(.breadcrumb) {
+                margin-top: 2rem;
+              }
+            }
           `}
         </style>
       </ComponentContainer>

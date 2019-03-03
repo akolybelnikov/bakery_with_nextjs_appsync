@@ -32,11 +32,13 @@ class Authenticate extends React.PureComponent {
   }
 
   onStateChange = async authState => {
-    console.log(this.props.currentProduct)
     if (authState === "signedIn") {
       const authUser = await currentUser()
+
       this.setState({ currentUser: authUser })
+
       this.props.setCurrentUser(authUser.attributes.email, true)
+      
       setTimeout(() => {
         if (this.props.currentProduct) {
           Router.push({

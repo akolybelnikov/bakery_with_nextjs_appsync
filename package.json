@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "now && now alias && now rm vse-bulochki --safe --yes"
+    "deploy": "now && now alias"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",

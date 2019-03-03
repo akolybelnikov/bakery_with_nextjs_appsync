@@ -9,6 +9,11 @@ export default ({ children }) => {
           }
           @media screen and (max-width: 1088px) {
             main {
+              padding: 6.5rem 0;
+            }
+          }
+          @media screen and (max-width: 599px) {
+            main {
               padding: 5.5rem 0;
             }
           }

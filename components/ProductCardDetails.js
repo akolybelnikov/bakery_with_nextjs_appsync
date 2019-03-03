@@ -178,7 +178,7 @@ const Details = ({
                               <EmptyHeart fill={theme.primary} />
                             </a>
                           )}
-                          {!getUser.votes.includes(product.productId) && (
+                          {getUser && getUser.votes && !getUser.votes.includes(product.productId) && (
                             <a
                               aria-label='like button'
                               onClick={() => {

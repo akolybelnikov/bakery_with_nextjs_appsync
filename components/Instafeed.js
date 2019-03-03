@@ -25,7 +25,6 @@ export default () => {
         process.env.INSTAGRAM_ACCESS_TOKEN
       }&&count=4`,
     )
-    console.log(result.data.data)
     setData(result.data)
   }
 

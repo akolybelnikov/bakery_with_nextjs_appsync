@@ -17,7 +17,6 @@ const Offers = () => {
             return <ErrorScreen />
           }
           if (listOffers) {
-            console.log(listOffers.items)
             return (
               <React.Fragment>
                 <Title
