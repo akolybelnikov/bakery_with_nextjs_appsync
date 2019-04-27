@@ -10,7 +10,7 @@ export default () => {
         </p>
         <br />
         <a
-          style={{ marginBlockEnd: '1rem', borderRadius: '4px' }}
+          style={{ marginBottom: '2rem', borderRadius: '4px' }}
           className='button is-success'
           href='tel:+79269823572'
           target='_self'
@@ -19,7 +19,7 @@ export default () => {
           <Icon className='fas fa-phone' />
         </a>
         <a
-          style={{ marginBlockEnd: '1rem', borderRadius: '4px' }}
+          style={{ marginBottom: '2rem', borderRadius: '4px' }}
           className='button is-success'
           href='tel:+79266298726'
           target='_self'

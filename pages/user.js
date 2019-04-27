@@ -1,5 +1,5 @@
 import { Auth } from 'aws-amplify'
-import { Subtitle } from 'bloomer'
+import { Title } from 'bloomer'
 import { Button } from 'bloomer/lib/elements/Button'
 import { Container } from 'bloomer/lib/layout/Container'
 import Link from 'next/link'
@@ -39,9 +39,12 @@ const User = ({ isAuthenticated, email, setCurrentUser }) => {
               console.log(getUser)
               return (
                 <React.Fragment>
-                  <Subtitle hasTextAlign='centered' hasTextColor='primary'>
+                  <Title
+                    style={{ textAlign: 'center', padding: '2rem 0' }}
+                    hasTextColor='primary'
+                    className='is-size-6-mobile is-size-4 has-text-centered-mobile'>
                     Вам недавно нравилось:
-                  </Subtitle>
+                  </Title>
                   <Query
                     query={LIST_PRODUCTS}
                     variables={{
@@ -58,7 +61,7 @@ const User = ({ isAuthenticated, email, setCurrentUser }) => {
                       if (listProducts) {
                         return (
                           <VotesList
-                            votes={findVotes(getUser.votes, listProducts.items)}
+                            votes={findVotes(getUser.votes, listProducts.items).splice(0, 10)}
                           />
                         )
                       } else {

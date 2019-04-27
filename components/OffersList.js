@@ -80,7 +80,7 @@ export default function({ items, height }) {
             letter-spacing: 2px;
             height: 175px;
             background: linear-gradient(135deg, #753957 25%, #eaccb2 100%);
-            overflow: scroll;
+            overflow: hidden;
             display: flex;
             align-items: center;
             margin-left: 10%;
@@ -89,7 +89,7 @@ export default function({ items, height }) {
             :global(.offer-item) {
               width: 90%;
               margin-left: 5%;
-              height: 425px;
+              height: 540px;
               padding: 10px;
             }
           }

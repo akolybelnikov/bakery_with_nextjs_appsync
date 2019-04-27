@@ -48,18 +48,17 @@ export default ({ news, DTsize, MBsize }) => {
       )}
       {news && (
         <BelowDefault>
-          <Card>
-            <CardImage>
+          <Card style={{background: `center center / cover no-repeat url(${process.env.IMAGEHANDLER_URL}/650x650/${news.image})`}}>
+            {/* <CardImage>
               <figure className='image figure-card'>
                 <Image
-                  style={{ minWidth: '100%' }}
                   className='media-image'
                   name={news.image}
                   size='600x600'
                   alt='news image'
                 />
               </figure>
-            </CardImage>
+            </CardImage> */}
             <CardContent className='media-content'>
               <p>{news.content}</p>
               <p
@@ -96,6 +95,7 @@ export default ({ news, DTsize, MBsize }) => {
         :global(.media-content) {
           text-align: justify;
           text-justify: inter-word;
+          background: rgba(255,255,255,.4)
         }
         p.news-content {
           margin-bottom: 1rem;

@@ -6,10 +6,11 @@ export default ({ children }) => {
         {`
           main {
             padding: 7.5rem 0.5rem 2rem;
+            overflow-x: hidden;
           }
           @media screen and (max-width: 1088px) {
             main {
-              padding: 6.5rem 0;
+              padding: 7.5rem 0;
             }
           }
           @media screen and (max-width: 599px) {

@@ -29,8 +29,8 @@ export default ({ news }) => {
       </Title>
       <div className='simple-trans-main' onClick={onClick}>
         <div
-          style={{ position: 'absolute', bottom: 10, right: 10, zIndex: 100 }}>
-          <Icon isSize='large' className='fa fa-caret-right fa-4x' />
+          style={{ position: 'absolute', bottom: 10, right: 20, zIndex: 100 }}>
+          <Icon isSize='large' className='fas fa-hand-point-right fa-2x' />
         </div>
         {transitions.map(({ item, props, key }) => {
           const Page = pages[item]
@@ -43,9 +43,6 @@ export default ({ news }) => {
               height: 400px;
               overflow: hidden;
             }
-            :global(.simple-trans-main) {
-              background: ${theme.primaryShadow};
-            }
           }
           :global(span.icon.is-large) {
             color: ${theme.primaryHalf}
@@ -57,8 +54,7 @@ export default ({ news }) => {
             margin: 0 auto;
             padding: 2rem;
             cursor: pointer;
-            scroll-behavior: smooth;
-            overflow-y: scroll;
+            background: linear-gradient(135deg, #eaccb2 25%, #753957 100%);
           }
           @media screen and (orientation: landscape) {
             :global(.simple-trans-main) {
@@ -68,13 +64,10 @@ export default ({ news }) => {
           @media all and (max-width: 599px) {
             :global(.simple-trans-main) {
               padding: 0 1rem;
-              min-height: 100vh;
+              background: center center / cover no-repeat url();
             }
             :global(.animated) {
               margin-bottom: 4.5rem;
-            }
-            :global(span.icon.is-large) {
-              color: ${theme.success}
             }
           }
           :global(.animated) {

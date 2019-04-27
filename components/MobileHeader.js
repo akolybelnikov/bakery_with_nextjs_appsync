@@ -81,7 +81,10 @@ export default class MobileHeader extends Component {
         <NavbarBrand>
           <NavbarItem className='logo' isHidden='desktop'>
             <Link href='/'>
-              <NavbarLink aria-label='Homepage link' className='is-arrowless'>
+              <NavbarLink
+                onClick={this.onCloseMenu}
+                aria-label='Homepage link'
+                className='is-arrowless'>
                 <Logo />
               </NavbarLink>
             </Link>
@@ -92,6 +95,7 @@ export default class MobileHeader extends Component {
               <NavbarItem isHidden='desktop'>
                 <Link href='/user'>
                   <NavbarLink
+                    onClick={this.onCloseMenu}
                     aria-label='User profile page link'
                     className='is-arrowless'>
                     {email}
@@ -188,7 +192,7 @@ export default class MobileHeader extends Component {
             }
             .navbar-menu {
               justify-content: space-evenly;
-              background-color: transparent;
+              background-color: rgba(255, 255, 255, 0.5);
             }
             .navbar-brand {
               justify-content: space-between !important;

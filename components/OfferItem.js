@@ -27,15 +27,16 @@ export default ({ item }) => {
       <BelowDefault>
         <Card>
           <CardImage>
-            <Image
-              isSquare
-              name={item.image}
-              size='200x200'
-              alt='Offer image'
-              class='offer-media-image'
-            />
+            <figure className='image' style={{ margin: '0 auto' }}>
+              <Image
+                name={item.image}
+                size='300x300'
+                alt='Offer image'
+                class='offer-media-image'
+              />
+            </figure>
           </CardImage>
-          <CardContent>{item.content}</CardContent>
+          <CardContent style={{ color: '#ffff' }}>{item.content}</CardContent>
         </Card>
       </BelowDefault>
       <style jsx>
@@ -53,9 +54,6 @@ export default ({ item }) => {
           }
           :global(.card-image) {
             display: flex;
-          }
-          :global(.card-image > img) {
-            margin: 0 auto;
           }
           :global(.card-content) {
             padding: 1rem 0;

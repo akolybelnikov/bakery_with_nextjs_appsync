@@ -29,7 +29,7 @@ const Offers = () => {
                   <OffersList items={listOffers.items} height='200' />
                 </Default>
                 <BelowDefault>
-                  <OffersList items={listOffers.items} height='450' />
+                  <OffersList items={listOffers.items} height='550' />
                 </BelowDefault>
               </React.Fragment>
             )

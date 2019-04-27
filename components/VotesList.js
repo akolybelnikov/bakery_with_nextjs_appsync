@@ -3,7 +3,6 @@ import { CardContent } from 'bloomer/lib/components/Card/CardContent'
 import Vote from './Vote'
 
 export default ({ votes }) => {
-  console.log(votes)
   return (
     <div className='votes'>
       {votes.map((vote, i) => (
@@ -18,6 +17,7 @@ export default ({ votes }) => {
             align-items: flex-start;
             justify-content: space-evenly;
             flex-wrap: wrap;
+            overflow-x: hidden;
           }
         `}
       </style>
