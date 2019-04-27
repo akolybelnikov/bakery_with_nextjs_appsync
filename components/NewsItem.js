@@ -59,7 +59,7 @@ export default ({ news, DTsize, MBsize }) => {
                 />
               </figure>
             </CardImage> */}
-            <CardContent className='media-content'>
+            <CardContent className='media-content news-item'>
               <p>{news.content}</p>
               <p
                 style={{
@@ -92,7 +92,7 @@ export default ({ news, DTsize, MBsize }) => {
           position: absolute;
           transform: translate(-50%, -50%);
         }
-        :global(.media-content) {
+        :global(.media-content.news-item) {
           text-align: justify;
           text-justify: inter-word;
           background: rgba(255,255,255,.4)
