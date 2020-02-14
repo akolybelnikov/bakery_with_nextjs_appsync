@@ -44,7 +44,7 @@
     "react-with-gesture": "^4.0.5",
     "rxjs": "^6.3.3",
     "slick-carousel": "^1.8.1",
-    "yarn": "^1.17.3"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "file-loader": "^3.0.1",
