@@ -28,7 +28,7 @@
     "moment": "^2.24.0",
     "next": "^9.3.2",
     "next-apollo-appsync": "^0.0.7",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "now": "^13.1.2",
     "react": "^16.8.2",
     "react-animations": "^1.0.0",
